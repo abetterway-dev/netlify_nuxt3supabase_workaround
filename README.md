@@ -7,8 +7,8 @@ In essence, I add and remove the cookies: 'sb-access-token' / 'sb-refresh-token'
 Alternatively, you can deploy from a local build and netlify-cli modifying node_modules/nitropack/dist/runtime/entries/netlify.mjs >> to return without normalizeOutgoingHeaders(r.headers).
 
 
-return {
-    statusCode: r.status,
-    headers: r.headers,
-    body: r.body.toString()
-  };
+    return {
+        statusCode: r.status,
+        headers: r.headers,
+        body: r.body.toString()
+    };
