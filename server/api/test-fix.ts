@@ -5,10 +5,10 @@ export default defineEventHandler(async (event) => {
         domain: 'https://meek-phoenix-1f6073.netlify.app',
         maxAge: 60 * 60 * 8,
         path: '/',
-        sameSite: 'lax',
+        sameSite: 'none',
         secure: true,
         httpOnly: true,
       })
 
-    return 'done'
+    return 'test #7'
 })
