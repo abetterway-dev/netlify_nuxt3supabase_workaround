@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { auth } = useSupabaseAuthClient()
 const user = useSupabaseUser()
+const router = useRouter()
 
 const password = ref("")
 const email = ref("")
@@ -26,9 +27,17 @@ const login = async () => {
     
     watch(user,() => {
         if(!!user.value){
-            navigateTo('/')
+            router.push('/')
         }
     })
+
+    const testAPI = async () => {
+        const { data } = await useFetch('/api/test', {  
+            //@ts-ignore
+            headers: useRequestHeaders(['cookie'])
+        })
+        alert(data.value)
+    }
 </script>
 <template>
     <div>
@@ -40,5 +49,6 @@ const login = async () => {
         <input type="password" v-model="password" />
     </div>
     <button @click="login">Login</button>
+    <button @click="testAPI()">Test API Call</button>
     <div>{{ errorMsg }}</div>
 </template>
