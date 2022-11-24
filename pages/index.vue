@@ -15,7 +15,6 @@ const logout = () => {
 
 const testAPI = async () => {
     const { data } = await useFetch('/api/test', {  
-        //@ts-ignore
         headers: useRequestHeaders(['cookie'])
     })
    alert(data.value)
