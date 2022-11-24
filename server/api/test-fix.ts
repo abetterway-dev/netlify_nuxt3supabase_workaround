@@ -1,13 +1,14 @@
-import { setCookie, appendResponseHeaders} from 'h3'
-import { serverSupabaseUser } from '#supabase/server'
+import { serialize } from "cookie-es";
+import { appendResponseHeaders } from 'h3'
 export default defineEventHandler(async (event) => {
-    setCookie(event, `test-access-token`, 'VALUE HERE', {
+    const cookieStr = serialize('test-access-token', 'Work Around', {
         domain: '',
         maxAge: 60 * 60 * 8,
         path: '/',
         sameSite: 'lax'
       })
-      appendResponseHeaders(event, { 'test-access-token':'VALUE%20HERE; Max-Age=28800; Path=/; SameSite=Lax'  })
+
+    appendResponseHeaders(event, { "Set-Cookie": cookieStr  })
     
-    return 'test #10'
+    return 'working'
 })
