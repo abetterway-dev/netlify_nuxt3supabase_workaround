@@ -1,14 +1,12 @@
-import { setCookie } from 'h3'
-// import { serverSupabaseUser } from '#supabase/server'
+import { setCookie} from 'h3'
+import { serverSupabaseUser } from '#supabase/server'
 export default defineEventHandler(async (event) => {
     setCookie(event, `test-access-token`, 'VALUE HERE', {
-        domain: 'https://meek-phoenix-1f6073.netlify.app',
+        domain: '',
         maxAge: 60 * 60 * 8,
         path: '/',
-        sameSite: 'none',
-        secure: true,
-        httpOnly: true,
+        sameSite: 'lax'
       })
 
-    return 'test #7'
+    return 'test #9'
 })
