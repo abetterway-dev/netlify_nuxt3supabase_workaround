@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
         sameSite: 'lax'
       })
 
-    appendResponseHeaders(event, { "Set-Cookie": cookieStr  })
+    appendResponseHeaders(event, { "set-cookie": cookieStr  })
     
     return 'working'
 })
