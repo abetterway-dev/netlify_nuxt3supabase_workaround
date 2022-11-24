@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
         maxAge: 60 * 60 * 8,
       })
 
-    appendResponseHeaders(event, { "set-cookie": cookieStr  })
+    appendResponseHeaders(event, { "Set-Cookie": cookieStr  })
     appendResponseHeaders(event, { "other": cookieStr  })
     
     return 'working'
