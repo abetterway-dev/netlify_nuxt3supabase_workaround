@@ -5,10 +5,11 @@ export default defineEventHandler(async (event) => {
         domain: '',
         maxAge: 60 * 60 * 8,
         path: '/',
-        sameSite: 'lax'
+        secure: true,
+        httpOnly: true,
       })
 
-    appendResponseHeaders(event, { "other": cookieStr  })
+    appendResponseHeaders(event, { "set-cookie": cookieStr  })
     
     return 'working'
 })
