@@ -1,5 +1,12 @@
 # Nuxt 3, Netlify & useSupabaseUser() cookie glitch workaround
 
-I am still getting issue #98 (Cookie Issues) on my netlify deploys using @nuxtjs/supabase 0.3.0 this is my test project on my workaround.
+I am still getting issue #98 (Cookie Issues) on my netlify deploys using @nuxtjs/supabase 0.3.0 this my workaround.
 
-In essence, I add and remove the cookies: 'sb-access-token' / 'sb-refresh-token' on signout and successful signin with useCookie.
+## Option 1
+Add and remove the cookies: 'sb-access-token' / 'sb-refresh-token' on signout and successful signin with useCookie.
+
+## Option 2
+- include 'enableNetlifyCookies.js'
+- change your build script in your package.json to  "node ./enableNetlifyCookies.js && nuxt build"
+
+This will remove the the normalizeOutgoingHeaders from the nitropack preset file for netlify.
