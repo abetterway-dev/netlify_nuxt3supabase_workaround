@@ -13,16 +13,16 @@ const login = async () => {
             }
 
   const { data: response, error } = await auth.signInWithPassword(loginRequest)
-    if(!!response){
-        const accessToken = useCookie('sb-access-token')
-        const refreshToken = useCookie('sb-refresh-token')
-        accessToken.value = response.session?.access_token ?? null
-        refreshToken.value = response.session?.refresh_token ?? null
-    }
+    // if(!!response){
+    //     const accessToken = useCookie('sb-access-token')
+    //     const refreshToken = useCookie('sb-refresh-token')
+    //     accessToken.value = response.session?.access_token ?? null
+    //     refreshToken.value = response.session?.refresh_token ?? null
+    // }
 
-    if(!!error){
-        errorMsg.value = error.message
-    }
+    // if(!!error){
+    //     errorMsg.value = error.message
+    // }
 }
     
     watch(user,() => {
