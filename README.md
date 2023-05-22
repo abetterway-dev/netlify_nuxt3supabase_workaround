@@ -1,5 +1,5 @@
 # Nuxt 3, Netlify & useSupabaseUser() cookie glitch workaround
-
+## (ISSUE HAS BEEN PATCHED)
 I am still getting issue #98 (Cookie Issues) on my netlify deploys using @nuxtjs/supabase 0.3.0 this my workaround.
 
 ## Option 1
